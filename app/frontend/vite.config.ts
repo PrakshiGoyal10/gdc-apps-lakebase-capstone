@@ -6,9 +6,8 @@ import path from "node:path";
 // Vite dev server proxies /api → uvicorn so `npm run dev` + `uvicorn` work side-by-side.
 export default defineConfig({
   plugins: [react()],
-  root: "frontend",
   build: {
-    outDir: path.resolve(__dirname, "backend/static"),
+    outDir: path.resolve(__dirname, "../backend/static"),
     emptyOutDir: true,
     sourcemap: true,
   },
@@ -23,7 +22,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "frontend/src"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
 });

@@ -57,4 +57,5 @@ targets:
   prod:
     workspace:
       host: https://fevm-serverless-stable-9i2dlu.cloud.databricks.com
+      root_path: /Workspace/Users/prakshi.goyal@databricks.com/.bundle/${bundle.name}/${bundle.target}
     mode: production

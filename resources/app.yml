@@ -25,15 +25,18 @@ resources:
             id: ${var.warehouse_id}
             permission: CAN_USE
 
-        - name: lakebase
-          database:
-            instance_name: ${var.lakebase_instance}
-            permission: CAN_USE
+        # Lakebase resource binding intentionally omitted on first deploy:
+        # the app SP's Postgres role doesn't exist until after its first
+        # connection, so granting CAN_CONNECT_AND_CREATE here errors with
+        # "Role <SP-UUID> not found in instance capstone-pg". The app
+        # connects to Lakebase via PGHOST / PGDATABASE env vars + the SDK's
+        # generate_database_credential call — no binding needed.
 
         - name: genie-space
           genie_space:
+            name: genie-space
             space_id: ${var.genie_space_id}
-            permission: CAN_USE
+            permission: CAN_RUN
 
         - name: forward-etl-job
           job:

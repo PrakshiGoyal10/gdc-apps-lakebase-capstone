@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/api/client.ts","./src/api/customers.ts","./src/api/genie.ts","./src/api/jobs.ts","./src/api/types.ts","./src/components/appshell.tsx","./src/components/geniewidget.tsx","./src/hooks/usedebounced.ts","./src/pages/customerdetail.tsx","./src/pages/customers.tsx","./src/pages/dashboard.tsx","./src/pages/reports.tsx"],"version":"5.9.3"}
