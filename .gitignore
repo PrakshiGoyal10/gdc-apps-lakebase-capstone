@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.databricks/
+.DS_Store
+node_modules/
+# NOTE: app/backend/static/ is intentionally NOT ignored — the git-source
+# app expects the built React bundle to be checked in, so the runtime
+# command is a plain uvicorn invocation with no npm build step.
+dist/
+build/
+*.log

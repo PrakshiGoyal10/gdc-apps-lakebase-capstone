@@ -1,0 +1,41 @@
+resources:
+  apps:
+    customer360:
+      name: ${var.app_name}
+      description: "Customer 360 capstone — git-source app"
+
+      # Git-source app: Databricks pulls from this repo on each `bundle run`.
+      # See T8 doc — the alternative (source_code_path workspace upload) is
+      # explicitly disallowed for capstone submission.
+      git_repository:
+        provider: github
+        url: ${var.git_repo_url}
+
+      git_source:
+        branch: ${var.git_branch}
+        source_code_path: "app"   # path INSIDE the repo
+
+      user_api_scopes:
+        - sql
+        - dashboards.genie
+
+      resources:
+        - name: sql-warehouse
+          sql_warehouse:
+            id: ${var.warehouse_id}
+            permission: CAN_USE
+
+        - name: lakebase
+          database:
+            instance_name: ${var.lakebase_instance}
+            permission: CAN_USE
+
+        - name: genie-space
+          genie_space:
+            space_id: ${var.genie_space_id}
+            permission: CAN_USE
+
+        - name: forward-etl-job
+          job:
+            id: ${resources.jobs.forward_etl.id}
+            permission: CAN_MANAGE_RUN

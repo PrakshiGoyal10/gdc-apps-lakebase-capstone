@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    forward_etl:
+      name: capstone-forward-etl
+
+      tasks:
+        - task_key: merge_staging_to_gold
+          notebook_task:
+            notebook_path: /Workspace/Shared/capstone/forward_etl/merge_staging_to_gold
+            base_parameters:
+              catalog:       ${var.catalog}
+              pghost:        ${var.pghost}
+              pgdatabase:    ${var.lakebase_database}
+              instance_name: ${var.lakebase_instance}
+
+      max_concurrent_runs: 1

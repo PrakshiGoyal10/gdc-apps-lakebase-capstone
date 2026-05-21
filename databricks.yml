@@ -1,0 +1,60 @@
+bundle:
+  name: customer360
+
+include:
+  - resources/*.yml
+
+variables:
+  app_name:
+    description: "Databricks Apps name (must be globally unique within the workspace)"
+    default: "customer360"
+
+  warehouse_id:
+    description: "Serverless SQL warehouse ID"
+    default: "a96dfe43147cf314"
+
+  lakebase_instance:
+    description: "Lakebase Postgres instance name"
+    default: "capstone-pg"
+
+  lakebase_database:
+    description: "Lakebase database name"
+    default: "capstone_db"
+
+  pghost:
+    description: "Lakebase Postgres host"
+    default: "ep-blue-mountain-d2ombdwe.database.us-east-1.cloud.databricks.com"
+
+  dashboard_id:
+    description: "AI/BI dashboard ID"
+    default: "01f1502f607a1d478dd8403f769586e2"
+
+  genie_space_id:
+    description: "Genie space ID"
+    default: "01f1502f81cb13cba152766ffa409ac0"
+
+  catalog:
+    description: "UC catalog containing gold schema"
+    default: "serverless_stable_9i2dlu_catalog"
+
+  pg_uc_catalog:
+    description: "UC catalog that mirrors Lakebase"
+    default: "capstone_lakebase"
+
+  git_repo_url:
+    description: "Forked GitHub repo URL (git-source app)"
+    default: "https://github.com/PrakshiGoyal10/gdc-apps-lakebase-capstone"
+
+  git_branch:
+    description: "Branch of the forked repo to deploy from"
+    default: "main"
+
+targets:
+  dev:
+    workspace:
+      host: https://fevm-serverless-stable-9i2dlu.cloud.databricks.com
+
+  prod:
+    workspace:
+      host: https://fevm-serverless-stable-9i2dlu.cloud.databricks.com
+    mode: production

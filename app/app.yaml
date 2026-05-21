@@ -1,0 +1,45 @@
+command:
+  - "uvicorn"
+  - "backend.main:app"
+
+env:
+  - name: DATABRICKS_HOST
+    value: "https://fevm-serverless-stable-9i2dlu.cloud.databricks.com"
+
+  - name: CAPSTONE_CATALOG
+    value: "serverless_stable_9i2dlu_catalog"
+
+  - name: CAPSTONE_SCHEMA
+    value: "gold"
+
+  - name: WAREHOUSE_ID
+    value: "a96dfe43147cf314"
+
+  - name: DASHBOARD_ID
+    value: "01f1502f607a1d478dd8403f769586e2"
+
+  - name: GENIE_SPACE_ID
+    value: "01f1502f81cb13cba152766ffa409ac0"
+
+  - name: PGHOST
+    value: "ep-blue-mountain-d2ombdwe.database.us-east-1.cloud.databricks.com"
+
+  - name: PGDATABASE
+    value: "capstone_db"
+
+  - name: PG_INSTANCE_NAME
+    value: "capstone-pg"
+
+  - name: PG_UC_CATALOG
+    value: "capstone_lakebase"
+
+  - name: PARENT_PATH
+    value: "/Workspace/Shared/capstone"
+
+  - name: FORWARD_ETL_JOB_ID
+    value: "328079722643771"
+
+user_authorization:
+  scopes:
+    - sql
+    - dashboards.genie
